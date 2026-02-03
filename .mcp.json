@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "databricks": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-databricks-server"],
+      "env": {}
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {}
+    },
+    "awslabs-aws-documentation-mcp-server": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["awslabs.aws-documentation-mcp-server@latest"],
+      "env": {}
+    }
+  }
+}

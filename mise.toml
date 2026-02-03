@@ -1,0 +1,4 @@
+[tools]
+"github:databricks/cli" = "latest"
+uv = "latest"
+python = "3.12"
