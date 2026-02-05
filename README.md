@@ -27,9 +27,21 @@ GitHub Codespaces を使用する場合、以下の環境変数を設定しま�
 
 Settings → Codespaces → Secrets から設定してください。
 
-| 変数名                  | 説明                      |
-| ----------------------- | ------------------------- |
-| `ANTHROPIC_API_KEY`     | Claude Code の API キー   |
+| 変数名                       | 説明                                  | 必須 |
+| ---------------------------- | ------------------------------------- | ---- |
+| `ANTHROPIC_API_KEY`          | Claude Code の API キー               | Yes  |
+| `DATABRICKS_HOST`            | Workspace URL (例: https://xxx.cloud.databricks.com) | No   |
+| `DATABRICKS_CLIENT_ID`       | Service Principal の Client ID        | No   |
+| `DATABRICKS_CLIENT_SECRET`   | Service Principal の Client Secret    | No   |
+
+NOTE: Databricks 認証情報は Codespaces Secrets で設定するか、手動で ~/.databrickscfg を作成することができます。
+
+#### Secrets の設定手順
+
+1. GitHub リポジトリ → Settings → Secrets and variables → Codespaces
+2. "New repository secret" をクリック
+3. 各シークレットを追加
+4. Codespaces を起動または再起動
 
 ### 2. ~/.databrickscfg の作成
 
