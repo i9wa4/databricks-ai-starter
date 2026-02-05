@@ -1,3 +1,5 @@
+# NOTE: Using "latest" for easier maintenance. Pin specific versions if
+# reproducible builds are required.
 [tools]
 "github:databricks/cli" = "latest"
 uv = "latest"
