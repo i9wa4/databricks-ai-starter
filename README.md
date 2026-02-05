@@ -67,6 +67,40 @@ NOTE: ローカルマシンで環境変数を設定することで、devcontaine
 export DATABRICKS_CONFIG_PROFILE=dev
 ```
 
+## セキュリティベストプラクティス
+
+### ~/.databrickscfg の保護
+
+- `chmod 600 ~/.databrickscfg` でパーミッションを設定
+- 絶対にコミットしない (.gitignore で除外済み)
+- 誤ってコミットした場合は直ちにシークレットをローテーション
+
+### マルチプロファイル設定
+
+~/.databrickscfg で複数のプロファイルを定義できます。
+
+```ini
+[prod]
+host = https://workspace-prod.cloud.databricks.com
+client_id = xxx
+client_secret = xxx
+warehouse_id = xxx
+cluster_id = xxx
+
+[dev]
+host = https://workspace-dev.cloud.databricks.com
+client_id = yyy
+client_secret = yyy
+warehouse_id = yyy
+cluster_id = yyy
+```
+
+環境変数で切り替え:
+
+```bash
+export DATABRICKS_CONFIG_PROFILE=dev
+```
+
 ## 使用方法
 
 ### Claude Code の起動
