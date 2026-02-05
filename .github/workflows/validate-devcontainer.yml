@@ -1,0 +1,36 @@
+name: Validate DevContainer
+
+on:
+  push:
+    paths:
+      - '.devcontainer/**'
+      - 'mise.toml'
+      - 'pyproject.toml'
+  pull_request:
+    paths:
+      - '.devcontainer/**'
+      - 'mise.toml'
+      - 'pyproject.toml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON syntax
+        run: |
+          python -m json.tool .devcontainer/devcontainer.json > /dev/null
+          echo "devcontainer.json: Valid JSON"
+
+      - name: Lint Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: .devcontainer/Dockerfile
+          failure-threshold: warning
+
+      - name: Check mise.toml syntax
+        run: |
+          pip install toml
+          python -c "import toml; toml.load('mise.toml')"
+          echo "mise.toml: Valid TOML"
