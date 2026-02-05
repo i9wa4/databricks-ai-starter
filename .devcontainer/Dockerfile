@@ -32,6 +32,9 @@ ENV PATH="/home/node/.local/bin:/home/node/.local/share/mise/shims:${PATH}"
 USER root
 RUN npm install -g @anthropic-ai/claude-code@latest
 
+# Install Codex CLI (OpenAI)
+RUN npm install -g @openai/codex@latest
+
 # Install zsh-in-docker for better shell experience
 RUN wget -qO- https://github.com/deluan/zsh-in-docker/releases/download/v1.2.1/zsh-in-docker.sh | zsh || true
 
