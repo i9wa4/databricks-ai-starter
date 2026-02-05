@@ -1,7 +1,7 @@
 [project]
-name = "databricks-claude-code-starter"
+name = "databricks-ai-starter"
 version = "0.1.0"
-description = "Dev Container starter template for Claude Code with Databricks"
+description = "Dev Container starter template for AI assistants (Claude Code, Codex CLI) with Databricks"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11"

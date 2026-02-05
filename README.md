@@ -1,6 +1,6 @@
-# databricks-claude-code-starter
+# databricks-ai-starter
 
-Claude Code と Databricks を統合した開発環境のスターターテンプレート
+Claude Code、Codex CLI と Databricks を統合した AI アシスト開発環境のスターターテンプレート
 
 GitHub Codespaces または Docker で動作する Dev Container 環境を提供します。
 
@@ -9,6 +9,7 @@ GitHub Codespaces または Docker で動作する Dev Container 環境を提供
 このリポジトリは、以下のツールを統合した開発環境を提供します。
 
 - Claude Code (VS Code 拡張による AI アシスタント)
+- Codex CLI (OpenAI の AI アシスタント CLI)
 - Databricks CLI (mise 経由でインストール)
 - jupyter-databricks-kernel (Databricks 対応 Jupyter カーネル)
 - MCP Databricks server (Claude Code から Databricks API を操作)
@@ -145,6 +146,14 @@ claude
 
 VS Code で Claude Code 拡張を使用することもできます (Ctrl+Shift+P → "Claude Code: New Chat")。
 
+### Codex CLI の起動
+
+```bash
+codex
+```
+
+OpenAI の AI アシスタント CLI として、コード生成やリファクタリングをサポートします。
+
 ### Databricks CLI の使用
 
 ```bash
@@ -170,6 +179,7 @@ jupyter kernelspec list | grep databricks
 | コンポーネント                | 説明                                |
 | ----------------------------- | ----------------------------------- |
 | Claude Code                   | VS Code 拡張による AI アシスタント |
+| Codex CLI                     | OpenAI の AI アシスタント CLI       |
 | Databricks CLI                | mise 経由でインストール             |
 | jupyter-databricks-kernel     | Databricks 対応 Jupyter カーネル   |
 | MCP Databricks server         | Claude Code から Databricks 操作    |

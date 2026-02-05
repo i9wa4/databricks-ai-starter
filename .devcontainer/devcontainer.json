@@ -1,5 +1,5 @@
 {
-  "name": "Databricks Claude Code Starter",
+  "name": "Databricks AI Starter",
   "build": {
     "dockerfile": "Dockerfile"
   },
