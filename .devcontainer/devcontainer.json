@@ -1,0 +1,28 @@
+{
+  "name": "Databricks Claude Code Starter",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteEnv": {
+    "DATABRICKS_CONFIG_PROFILE": "prod",
+    "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin:${containerEnv:HOME}/.local/share/mise/shims",
+    "CLAUDE_CONFIG_DIR": "/home/node/.claude"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "mounts": [
+    "source=devcontainer-bashhistory,target=/commandhistory,type=volume",
+    "source=devcontainer-claude-config,target=/home/node/.claude,type=volume"
+  ],
+  "postCreateCommand": ".devcontainer/post-create.sh",
+  "remoteUser": "node"
+}
