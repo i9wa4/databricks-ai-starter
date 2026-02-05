@@ -113,6 +113,28 @@ cluster_id = yyy
 export DATABRICKS_CONFIG_PROFILE=dev
 ```
 
+### iptables ファイアウォール (オプション)
+
+**WARNING: Advanced users only. May affect Codespaces networking.**
+
+コンテナのネットワークセキュリティを強化する場合、オプションで iptables ファイアウォールを有効化できます。
+
+#### 有効化手順
+
+1. `.devcontainer/devcontainer.json` の `postCreateCommand` を編集:
+
+```json
+"postCreateCommand": ".devcontainer/post-create.sh && .devcontainer/init-firewall.sh"
+```
+
+2. Codespaces を再構築
+
+#### 注意事項
+
+- Codespaces のポートフォワーディングに影響する可能性があります
+- カスタムポートを使用する場合は、`.devcontainer/init-firewall.sh` を編集してポートを追加してください
+- 問題が発生した場合は、`postCreateCommand` から `init-firewall.sh` を削除して無効化できます
+
 ## 使用方法
 
 ### Claude Code の起動
