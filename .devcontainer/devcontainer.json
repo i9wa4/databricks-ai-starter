@@ -4,7 +4,7 @@
     "dockerfile": "Dockerfile"
   },
   "remoteEnv": {
-    "DATABRICKS_CONFIG_PROFILE": "prod",
+    "DATABRICKS_CONFIG_PROFILE": "${localEnv:DATABRICKS_CONFIG_PROFILE:prod}",
     "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin:${containerEnv:HOME}/.local/share/mise/shims",
     "CLAUDE_CONFIG_DIR": "/home/node/.claude"
   },

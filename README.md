@@ -60,6 +60,13 @@ export DATABRICKS_CONFIG_PROFILE=prod
 
 デフォルトは `prod` です。
 
+NOTE: ローカルマシンで環境変数を設定することで、devcontainer 内のデフォルト値をオーバーライドできます。
+
+```bash
+# ローカルマシンで環境変数を設定してから Codespaces を起動
+export DATABRICKS_CONFIG_PROFILE=dev
+```
+
 ## 使用方法
 
 ### Claude Code の起動
