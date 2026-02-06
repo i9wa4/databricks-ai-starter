@@ -180,8 +180,6 @@ jupyter kernelspec list | grep databricks
 | Databricks CLI                | mise 経由でインストール             |
 | jupyter-databricks-kernel     | Databricks 対応 Jupyter カーネル   |
 | MCP Databricks server         | Claude Code から Databricks 操作    |
-| context7 MCP server           | ライブラリドキュメント取得          |
-| AWS Documentation MCP server  | AWS ドキュメント検索                |
 
 ## トラブルシューティング
 
