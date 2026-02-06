@@ -12,6 +12,7 @@
     },
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
+  "onCreateCommand": "sudo apt-get update && sudo apt-get install -y vim",
   "remoteEnv": {
     "DATABRICKS_CONFIG_PROFILE": "${localEnv:DATABRICKS_CONFIG_PROFILE:prod}",
     "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin:${containerEnv:HOME}/.local/share/mise/shims",
