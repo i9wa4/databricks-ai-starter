@@ -4,6 +4,25 @@ set -o nounset
 set -o pipefail
 
 echo "セットアップ開始..."
+
+# Create .databrickscfg template if not exists
+if [ ! -f /workspaces/databricks-ai-starter/.databrickscfg ]; then
+  cat > /workspaces/databricks-ai-starter/.databrickscfg <<'EOF'
+[prod]
+host = https://your-workspace.cloud.databricks.com
+client_id = your-client-id
+client_secret = your-client-secret
+warehouse_id = your-warehouse-id
+cluster_id = your-cluster-id
+EOF
+  chmod 600 /workspaces/databricks-ai-starter/.databrickscfg
+fi
+
+# Create .env template if not exists
+if [ ! -f /workspaces/databricks-ai-starter/.env ]; then
+  cp /workspaces/databricks-ai-starter/.env.example /workspaces/databricks-ai-starter/.env
+fi
+
 # Databricks config symlink
 ln -sf /workspaces/databricks-ai-starter/.databrickscfg /home/vscode/.databrickscfg
 
