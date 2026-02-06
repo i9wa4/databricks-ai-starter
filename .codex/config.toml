@@ -1,9 +1,5 @@
-#:schema https://developers.openai.com/codex/config-schema.json
-
-hide_agent_reasoning = true
-model_reasoning_effort = "high"
 network_access = true
-notify = ["sh", "-c", "printf '\\a'"]
+web_search = "live"
 
 [analytics]
 enabled = false
@@ -14,12 +10,8 @@ enabled = false
 [features]
 collab = true
 skills = true
-web_search = true
 
 [mcp_servers.databricks]
 command = "uvx"
 args = ["--from", "git+https://github.com/i9wa4/mcp-databricks-server.git", "mcp-databricks-server"]
-
-[mcp_servers.context7]
-command = "npx"
-args = ["-y", "@upstash/context7-mcp"]
+startup_timeout_sec = 30
