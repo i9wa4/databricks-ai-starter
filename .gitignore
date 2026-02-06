@@ -206,8 +206,5 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Claude Code working directory
-.i9wa4/
-
 # Databricks configuration (contains credentials)
 .databrickscfg
