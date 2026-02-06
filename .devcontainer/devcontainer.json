@@ -22,16 +22,10 @@
       "extensions": [
         "anthropic.claude-code",
         "ms-python.python",
-        "ms-toolsai.jupyter",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
+        "ms-toolsai.jupyter"
       ]
     }
   },
-  "mounts": [
-    "source=devcontainer-bashhistory,target=/commandhistory,type=volume",
-    "source=devcontainer-claude-config,target=/home/vscode/.claude,type=volume"
-  ],
   "postCreateCommand": ".devcontainer/post-create.sh",
   "remoteUser": "vscode"
 }
