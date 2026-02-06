@@ -20,6 +20,8 @@ echo "zsh 設定中..."
 cat >~/.zshrc <<'ZSHRC'
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 eval "$(~/.local/bin/mise activate zsh)"
+# Load .env if exists
+[ -f /workspace/.env ] && source /workspace/.env
 ZSHRC
 
 # pre-commit hook to prevent .env commits
