@@ -5,6 +5,10 @@ set -o pipefail
 
 echo "Starting post-create setup..."
 
+# mise install
+echo "Installing mise..."
+curl https://mise.run | sh
+
 # mise activate & install
 echo "Installing mise tools..."
 eval "$(~/.local/bin/mise activate bash)"
@@ -37,6 +41,13 @@ fi
 # Python dependencies
 echo "Installing Python dependencies..."
 ~/.local/bin/mise exec -- uv sync
+
+# AI Code Assistants (optional tools)
+echo "Installing Claude Code..."
+curl -fsSL https://claude.ai/install.sh | bash || echo "WARNING: Claude Code installation failed"
+
+echo "Installing Codex CLI..."
+npm install -g @openai/codex || echo "WARNING: Codex CLI installation failed"
 
 # Databricks kernel install
 echo "Installing Databricks Jupyter kernel..."

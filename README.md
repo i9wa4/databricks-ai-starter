@@ -114,27 +114,27 @@ cluster_id = yyy
 export DATABRICKS_CONFIG_PROFILE=dev
 ```
 
-### iptables ファイアウォール (オプション)
+## AI Code Assistants
 
-**WARNING: Advanced users only. May affect Codespaces networking.**
+### Claude Code (Beta)
 
-コンテナのネットワークセキュリティを強化する場合、オプションで iptables ファイアウォールを有効化できます。
+Claude Code is currently in Beta. Installation is handled automatically during post-create setup.
 
-#### 有効化手順
+**Login**: Run `claude login` and authenticate via browser with your Anthropic account.
 
-1. `.devcontainer/devcontainer.json` の `postCreateCommand` を編集:
+### Codex CLI
 
-```json
-"postCreateCommand": ".devcontainer/post-create.sh && .devcontainer/init-firewall.sh"
-```
+**Login options**:
 
-2. Codespaces を再構築
+1. **ChatGPT account**: Run `codex` and login with your ChatGPT account (recommended)
+2. **API key**: Set `OPENAI_API_KEY` environment variable
+3. **Device authentication** (headless): Run `codex login --device-auth`
 
-#### 注意事項
+### Environment Variables
 
-- Codespaces のポートフォワーディングに影響する可能性があります
-- カスタムポートを使用する場合は、`.devcontainer/init-firewall.sh` を編集してポートを追加してください
-- 問題が発生した場合は、`postCreateCommand` から `init-firewall.sh` を削除して無効化できます
+Priority: Codespaces secrets (primary) > `.env` file (fallback)
+
+If using `.env` file, create it in the project root (it is gitignored).
 
 ## 使用方法
 

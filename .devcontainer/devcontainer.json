@@ -1,12 +1,21 @@
 {
   "name": "Databricks AI Starter",
-  "build": {
-    "dockerfile": "Dockerfile"
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "username": "vscode",
+      "upgradePackages": true
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "remoteEnv": {
     "DATABRICKS_CONFIG_PROFILE": "${localEnv:DATABRICKS_CONFIG_PROFILE:prod}",
     "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin:${containerEnv:HOME}/.local/share/mise/shims",
-    "CLAUDE_CONFIG_DIR": "/home/node/.claude"
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
   },
   "customizations": {
     "vscode": {
@@ -21,8 +30,8 @@
   },
   "mounts": [
     "source=devcontainer-bashhistory,target=/commandhistory,type=volume",
-    "source=devcontainer-claude-config,target=/home/node/.claude,type=volume"
+    "source=devcontainer-claude-config,target=/home/vscode/.claude,type=volume"
   ],
   "postCreateCommand": ".devcontainer/post-create.sh",
-  "remoteUser": "node"
+  "remoteUser": "vscode"
 }
