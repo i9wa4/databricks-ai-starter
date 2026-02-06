@@ -18,7 +18,6 @@ GitHub Codespaces または Docker で動作する Dev Container 環境を提供
 
 - GitHub Codespaces または Docker がインストールされた環境
 - Databricks workspace (Service Principal での認証を推奨)
-- Anthropic API key
 
 ## セットアップ手順
 
@@ -28,12 +27,11 @@ GitHub Codespaces を使用する場合、以下の環境変数を設定しま�
 
 Settings → Codespaces → Secrets から設定してください。
 
-| 変数名                       | 説明                                  | 必須 |
-| ---------------------------- | ------------------------------------- | ---- |
-| `ANTHROPIC_API_KEY`          | Claude Code の API キー               | Yes  |
-| `DATABRICKS_HOST`            | Workspace URL (例: https://xxx.cloud.databricks.com) | No   |
-| `DATABRICKS_CLIENT_ID`       | Service Principal の Client ID        | No   |
-| `DATABRICKS_CLIENT_SECRET`   | Service Principal の Client Secret    | No   |
+| 変数名                       | 説明                                                     | 必須 |
+| ---------------------------- | -------------------------------------------------------- | ---- |
+| `DATABRICKS_HOST`            | Workspace URL (例: https://xxx.cloud.databricks.com)     | No   |
+| `DATABRICKS_CLIENT_ID`       | Service Principal の Client ID                           | No   |
+| `DATABRICKS_CLIENT_SECRET`   | Service Principal の Client Secret                       | No   |
 
 NOTE: Databricks 認証情報は Codespaces Secrets で設定するか、手動で ~/.databrickscfg を作成することができます。
 
@@ -114,27 +112,26 @@ cluster_id = yyy
 export DATABRICKS_CONFIG_PROFILE=dev
 ```
 
-## AI Code Assistants
+## AI コードアシスタント
 
-### Claude Code (Beta)
+### Claude Code (ベータ版)
 
-Claude Code is currently in Beta. Installation is handled automatically during post-create setup.
+Claude Code は現在ベータ版です。インストールはpost-createセットアップ時に自動的に行われます。
 
-**Login**: Run `claude login` and authenticate via browser with your Anthropic account.
+**ログイン**: `claude login` を実行し、ブラウザでAnthropicアカウントで認証してください。
 
 ### Codex CLI
 
-**Login options**:
+**ログイン方法**:
 
-1. **ChatGPT account**: Run `codex` and login with your ChatGPT account (recommended)
-2. **API key**: Set `OPENAI_API_KEY` environment variable
-3. **Device authentication** (headless): Run `codex login --device-auth`
+1. **ChatGPT アカウント**: `codex` を実行し、ChatGPT アカウントでログイン（推奨）
+2. **デバイス認証**（ヘッドレス環境向け）: `codex login --device-auth` を実行
 
-### Environment Variables
+### 環境変数
 
-Priority: Codespaces secrets (primary) > `.env` file (fallback)
+優先順位: Codespaces secrets（優先）> `.env` ファイル（フォールバック）
 
-If using `.env` file, create it in the project root (it is gitignored).
+`.env` ファイルを使用する場合は、プロジェクトルートに作成してください（gitignoreに含まれています）。
 
 ## 使用方法
 
