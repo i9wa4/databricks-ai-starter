@@ -8,7 +8,7 @@ echo "セットアップ開始..."
 # Create .databrickscfg template if not exists
 if [ ! -f /workspaces/databricks-ai-starter/.databrickscfg ]; then
   cat > /workspaces/databricks-ai-starter/.databrickscfg <<'EOF'
-[prod]
+[databricks-workspace-1]
 host = https://your-workspace.cloud.databricks.com
 client_id = your-client-id
 client_secret = your-client-secret
@@ -20,7 +20,9 @@ fi
 
 # Create .env template if not exists
 if [ ! -f /workspaces/databricks-ai-starter/.env ]; then
-  cp /workspaces/databricks-ai-starter/.env.example /workspaces/databricks-ai-starter/.env
+  cat > /workspaces/databricks-ai-starter/.env <<'EOF'
+DATABRICKS_CONFIG_PROFILE=databricks-workspace-1
+EOF
 fi
 
 # Databricks config symlink
