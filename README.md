@@ -1,13 +1,13 @@
 # databricks-ai-starter
 
-Claude Code、Codex CLI と Databricks を統合した開発環境テンプレート
+Claude Code / Codex CLI / Databricks を統合した開発環境テンプレート
 
 ## クイックスタート
 
-1. GitHub Codespaces で開く、または VS Code の "Reopen in Container" で起動
-2. `.databrickscfg` を編集して認証情報を設定
-3. `.env` で `DATABRICKS_CONFIG_PROFILE` を設定
-4. `claude` または `codex` を起動
+1. GitHub Codespaces で開く、または VS Code の Dev Container で "Reopen in Container" で起動する
+2. `.databrickscfg` を編集して認証情報を設定する
+3. `.env` で `DATABRICKS_CONFIG_PROFILE` を設定する
+4. ターミナルから `claude` または `codex` を起動する
 
 ## 認証設定
 
@@ -25,20 +25,11 @@ warehouse_id = your-warehouse-id
 ### .env
 
 ```bash
-DATABRICKS_CONFIG_PROFILE=databricks-workspace-1
+export DATABRICKS_CONFIG_PROFILE=databricks-workspace-1
 ```
 
-## AI アシスタント
+## Jupyter Notebook
 
-| ツール      | ログイン                |
-| ----------- | ----------------------- |
-| Claude Code | `claude login`          |
-| Codex CLI   | `codex` (初回起動時)    |
+Jupyter Notebook ではカーネル "Databricks" を選択するとリモート実行できるようになります。
 
-## Jupyter
-
-```bash
-uv run jupyter-lab
-```
-
-カーネル "Databricks" を選択
+GitHub Codespaces での初回起動の場合は F5 リロード後にカーネル "Databricks" が出現します。
