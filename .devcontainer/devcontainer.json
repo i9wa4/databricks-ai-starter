@@ -16,6 +16,7 @@
     "vscode": {
       "extensions": [
         "anthropic.claude-code",
+        "ms-ceintl.vscode-language-pack-ja",
         "ms-python.python",
         "ms-toolsai.jupyter",
         "openai.chatgpt"
