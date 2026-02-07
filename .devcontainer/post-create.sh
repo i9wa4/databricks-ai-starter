@@ -38,7 +38,9 @@ eval "$(mise activate bash)"
 BASHRC
 
 # Install tools via mise (see mise.toml)
+mise trust --all
 mise install
+eval "$(mise activate bash)"
 
 # Python dependencies
 uv sync --frozen
