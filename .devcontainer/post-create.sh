@@ -7,12 +7,20 @@ set -o posix
 # Create .databrickscfg template if not exists
 if [ ! -f /workspaces/databricks-ai-starter/.databrickscfg ]; then
   cat >/workspaces/databricks-ai-starter/.databrickscfg <<'EOF'
-[databricks-workspace-1]
-host = https://your-workspace.cloud.databricks.com
-client_id = your-client-id
-client_secret = your-client-secret
-warehouse_id = your-warehouse-id
-cluster_id = your-cluster-id
+# Service Principal
+# [databricks-workspace-1]
+# host = https://your-workspace.cloud.databricks.com
+# client_id = your-client-id
+# client_secret = your-client-secret
+# warehouse_id = your-warehouse-id
+# cluster_id = your-cluster-id
+
+# Personal Access Token
+# [databricks-workspace-1]
+# host = https://your-workspace.cloud.databricks.com
+# token = dapi-xxxxxxxxxxxxxxxx
+# warehouse_id = your-warehouse-id
+# cluster_id = your-cluster-id
 EOF
   chmod 600 /workspaces/databricks-ai-starter/.databrickscfg
 fi
