@@ -9,13 +9,10 @@
     "ghcr.io/devcontainers/features/python:1": {
       "version": "3.13"
     },
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "20"
-    }
+    "ghcr.io/devcontainers-extra/features/mise:1": {}
   },
-  "onCreateCommand": "sudo apt-get update && sudo apt-get install -y vim",
   "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin",
+    "PATH": "${containerEnv:HOME}/.local/bin:${containerEnv:PATH}",
     "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
   },
   "customizations": {
