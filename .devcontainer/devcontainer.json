@@ -15,13 +15,16 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "anthropic.claude-code",
+        "ms-ceintl.vscode-language-pack-ja",
         "ms-python.python",
-        "ms-toolsai.jupyter",
-        "openai.chatgpt"
+        "ms-toolsai.jupyter"
       ],
       "settings": {
-        "application.shellEnvironmentResolutionTimeout": 30
+        "application.shellEnvironmentResolutionTimeout": 30,
+        "editor.fontSize": 22,
+        "notebook.markup.fontSize": 20,
+        "notebook.output.fontSize": 20,
+        "terminal.integrated.fontSize": 20
       }
     }
   },
