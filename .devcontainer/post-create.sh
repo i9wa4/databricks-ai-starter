@@ -20,7 +20,7 @@ fi
 # Create .env template if not exists
 if [ ! -f /workspaces/databricks-ai-starter/.env ]; then
   cat >/workspaces/databricks-ai-starter/.env <<'EOF'
-DATABRICKS_CONFIG_PROFILE=databricks-workspace-1
+export DATABRICKS_CONFIG_PROFILE=databricks-workspace-1
 EOF
 fi
 

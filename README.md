@@ -19,6 +19,7 @@ host = https://your-workspace.cloud.databricks.com
 client_id = your-client-id
 client_secret = your-client-secret
 cluster_id = your-cluster-id
+warehouse_id = your-warehouse-id
 ```
 
 ### .env
