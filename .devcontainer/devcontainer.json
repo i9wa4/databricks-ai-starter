@@ -3,19 +3,19 @@
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": true,
       "username": "vscode",
       "upgradePackages": true
     },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.13"
+    },
     "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
-    },
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    }
   },
   "onCreateCommand": "sudo apt-get update && sudo apt-get install -y vim",
   "remoteEnv": {
-    "DATABRICKS_CONFIG_PROFILE": "${localEnv:DATABRICKS_CONFIG_PROFILE:prod}",
-    "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin:${containerEnv:HOME}/.local/share/mise/shims",
+    "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin",
     "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
   },
   "customizations": {
@@ -23,8 +23,12 @@
       "extensions": [
         "anthropic.claude-code",
         "ms-python.python",
-        "ms-toolsai.jupyter"
-      ]
+        "ms-toolsai.jupyter",
+        "openai.chatgpt"
+      ],
+      "settings": {
+        "application.shellEnvironmentResolutionTimeout": 30
+      }
     }
   },
   "postCreateCommand": ".devcontainer/post-create.sh",

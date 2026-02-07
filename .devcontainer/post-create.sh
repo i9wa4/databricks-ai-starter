@@ -30,7 +30,9 @@ ln -sf /workspaces/databricks-ai-starter/.databrickscfg /home/vscode/.databricks
 
 # bash configuration
 echo "bash 設定中..."
-cat >~/.bashrc <<'BASHRC'
+cat >>~/.bashrc <<'BASHRC'
+
+# uv
 export PATH="$HOME/.local/bin:$PATH"
 # Load .env if exists
 [ -f /workspaces/databricks-ai-starter/.env ] && source /workspaces/databricks-ai-starter/.env

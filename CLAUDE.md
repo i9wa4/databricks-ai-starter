@@ -7,6 +7,8 @@
 
 ## 2. jupyter-databricks-kernel CLI 実行
 
+通常は --inplace オプションを使ってノートブックを上書きしてください。
+
 ```bash
 uv run jupyter execute notebook.ipynb --kernel_name=databricks [OPTIONS]
 ```

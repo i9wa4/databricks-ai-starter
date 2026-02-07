@@ -4,8 +4,8 @@ version = "0.1.0"
 description = "Dev Container starter template for AI assistants (Claude Code, Codex CLI) with Databricks"
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
-    "jupyter-databricks-kernel",
+    "jupyter-databricks-kernel>=1.2.1",
     "jupyterlab",
 ]
