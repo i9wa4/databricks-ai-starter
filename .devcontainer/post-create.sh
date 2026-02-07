@@ -24,8 +24,9 @@ export DATABRICKS_CONFIG_PROFILE=databricks-workspace-1
 EOF
 fi
 
-# Databricks config symlink
+# Symlinks
 ln -sf /workspaces/databricks-ai-starter/.databrickscfg /home/vscode/.databrickscfg
+ln -sf /workspaces/databricks-ai-starter/CLAUDE.md /workspaces/databricks-ai-starter/AGENTS.md
 
 # Load .env in bash
 cat >>~/.bashrc <<'BASHRC'
@@ -37,13 +38,12 @@ eval "$(mise activate bash)"
 [ -f /workspaces/databricks-ai-starter/.env ] && source /workspaces/databricks-ai-starter/.env
 BASHRC
 
-# Install tools via mise (see mise.toml)
+# Install AI tools via mise (see mise.toml)
 mise trust --all
 mise install
-eval "$(mise activate bash)"
 
 # Python dependencies
-uv sync --frozen
+pip install .
 
 # Databricks kernel install
-uv run python -m jupyter_databricks_kernel.install
+python -m jupyter_databricks_kernel.install

@@ -206,5 +206,8 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
+# AGENTS.md (symlink to CLAUDE.md, created by post-create.sh)
+AGENTS.md
+
 # Databricks configuration (contains credentials)
 .databrickscfg
