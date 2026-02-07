@@ -11,7 +11,7 @@ Claude Code / Codex CLI / Databricks を統合した開発環境テンプレー�
 
 ## 2. 認証設定
 
-### 2.1. databrickscfg
+### 2.1. `.databrickscfg`
 
 Service Principal の場合:
 
@@ -34,7 +34,7 @@ warehouse_id = your-warehouse-id
 cluster_id = your-cluster-id
 ```
 
-### 2.2. env
+### 2.2. `.env`
 
 ```bash
 export DATABRICKS_CONFIG_PROFILE=databricks-workspace-1
