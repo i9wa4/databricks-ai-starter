@@ -45,7 +45,7 @@ jupyter execute notebook.ipynb --kernel_name=databricks --inplace
 
 ### Using Japanese in matplotlib
 
-- **Always use japanize-matplotlib** when creating figures (graphs) in Jupyter Notebook
+- If you use Japanese, import japanize-matplotlib
 - Add the following to the first cell of the notebook
 
 ```python
