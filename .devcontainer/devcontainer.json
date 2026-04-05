@@ -30,6 +30,6 @@
       }
     }
   },
-  "postCreateCommand": ".devcontainer/post-create.sh",
+  "postCreateCommand": "sed 's/\\r$//' .devcontainer/post-create.sh | bash",
   "remoteUser": "vscode"
 }
