@@ -22,11 +22,7 @@
         "ms-toolsai.jupyter"
       ],
       "settings": {
-        "application.shellEnvironmentResolutionTimeout": 30,
-        "editor.fontSize": 22,
-        "notebook.markup.fontSize": 20,
-        "notebook.output.fontSize": 20,
-        "terminal.integrated.fontSize": 20
+        "application.shellEnvironmentResolutionTimeout": 30
       }
     }
   },
