@@ -1,0 +1,4 @@
+# Ensure shell scripts always use LF line endings, even on Windows.
+# Without this, Git's core.autocrlf=true converts LF to CRLF on checkout,
+# which breaks shebangs inside devcontainers (exit code 127).
+*.sh text eol=lf
