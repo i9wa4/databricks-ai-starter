@@ -1,0 +1,6 @@
+# Normalize line endings for all text files (LF in repo, native on checkout).
+* text=auto
+
+# Always use LF for shell scripts, even on Windows checkout.
+# Without this, CRLF breaks shebangs inside devcontainers (exit code 127).
+*.sh text eol=lf
