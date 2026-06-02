@@ -32,8 +32,8 @@ this public template.
 
 The public starter targets Claude Code plus Databricks. Codex is not a
 supported target for this alignment track. Tool packaging should be owned by Dev
-Container Features, and later setup work should remove `mise` as a required
-tool-installation surface.
+Container Features, including the Python, `uv`, and Claude Code tooling used by
+the development container.
 
 Private or domain-specific analytics knowledge is excluded by default. If
 examples are added, they must be synthetic or sanitized and must not copy

@@ -39,16 +39,9 @@ ln -sf /workspaces/databricks-ai-starter/CLAUDE.md /workspaces/databricks-ai-sta
 # Load .env in bash
 cat >>~/.bashrc <<'BASHRC'
 
-# mise
-eval "$(mise activate bash)"
-
 # Load .env if exists
 [ -f /workspaces/databricks-ai-starter/.env ] && source /workspaces/databricks-ai-starter/.env
 BASHRC
-
-# Install AI tools via mise (see mise.toml)
-mise trust --all
-mise install
 
 # Python dependencies
 pip install .

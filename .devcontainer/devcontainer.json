@@ -9,11 +9,17 @@
     "ghcr.io/devcontainers/features/python:1": {
       "version": "3.13"
     },
-    "ghcr.io/devcontainers-extra/features/mise:1": {}
+    "ghcr.io/devcontainers-extra/features/uv:1": {
+      "version": "latest"
+    },
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
   },
   "remoteEnv": {
     "PATH": "${containerEnv:HOME}/.local/bin:${containerEnv:PATH}",
     "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
+  },
+  "containerEnv": {
+    "UV_LINK_MODE": "copy"
   },
   "customizations": {
     "vscode": {
