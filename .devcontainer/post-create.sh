@@ -1,8 +1,27 @@
 #!/usr/bin/env bash
-set -o errexit
-set -o nounset
-set -o pipefail
-set -o posix
+set -euo pipefail
+
+if [ "${POST_CREATE_DEBUG:-}" = "1" ]; then
+  set -x
+fi
+
+USER_HOME=${DEVCONTAINER_USER_HOME:-$HOME}
+
+install_claude() {
+  local installer
+  local status=0
+
+  installer=$(mktemp)
+  curl -fsSL https://claude.ai/install.sh -o "$installer" || status=$?
+  if [ "$status" -eq 0 ]; then
+    bash "$installer" || status=$?
+  fi
+  rm -f "$installer"
+  return "$status"
+}
+
+export PATH="$USER_HOME/.local/bin:$PATH"
+export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$USER_HOME/.claude}"
 
 # Create .databrickscfg template if not exists
 if [ ! -f /workspaces/databricks-ai-starter/.databrickscfg ]; then
@@ -33,11 +52,11 @@ EOF
 fi
 
 # Symlinks
-ln -sf /workspaces/databricks-ai-starter/.databrickscfg /home/vscode/.databrickscfg
+ln -sf /workspaces/databricks-ai-starter/.databrickscfg "$USER_HOME/.databrickscfg"
 ln -sf /workspaces/databricks-ai-starter/CLAUDE.md /workspaces/databricks-ai-starter/AGENTS.md
 
 # Load .env in bash
-cat >>~/.bashrc <<'BASHRC'
+cat >>"$USER_HOME/.bashrc" <<'BASHRC'
 
 # Load .env if exists
 [ -f /workspaces/databricks-ai-starter/.env ] && source /workspaces/databricks-ai-starter/.env
@@ -45,6 +64,9 @@ BASHRC
 
 # Python dependencies
 pip install .
+
+# Claude Code native install
+command -v claude >/dev/null 2>&1 || install_claude
 
 # Databricks kernel install
 python -m jupyter_databricks_kernel.install

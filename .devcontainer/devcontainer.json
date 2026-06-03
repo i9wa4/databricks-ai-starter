@@ -11,15 +11,15 @@
     },
     "ghcr.io/devcontainers-extra/features/uv:1": {
       "version": "latest"
-    },
-    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+    }
   },
   "remoteEnv": {
-    "PATH": "${containerEnv:HOME}/.local/bin:${containerEnv:PATH}",
-    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
+    "PATH": "${containerEnv:DEVCONTAINER_USER_HOME}/.local/bin:${containerEnv:PATH}",
+    "CLAUDE_CONFIG_DIR": "${containerEnv:DEVCONTAINER_USER_HOME}/.claude"
   },
   "containerEnv": {
-    "UV_LINK_MODE": "copy"
+    "UV_LINK_MODE": "copy",
+    "DEVCONTAINER_USER_HOME": "/home/vscode"
   },
   "customizations": {
     "vscode": {
